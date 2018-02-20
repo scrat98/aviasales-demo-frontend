@@ -138,7 +138,7 @@ const TripDate = styled.span`
   text-align: right;
 `;
 
-const Card = props => (
+export default props => (
   <Wrapper href="#">
     <PhotoWrapper>
       <Photo src={props.img} alt={props.city} />
@@ -158,5 +158,3 @@ const Card = props => (
     </Content>
   </Wrapper>
 );
-
-export default Card;
