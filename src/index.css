@@ -1,8 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 html {
+  font-size: 14px;
   min-width: 320px;
   box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 *,
@@ -12,5 +19,5 @@ html {
 }
 
 body {
-  font-family: Roboto;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
