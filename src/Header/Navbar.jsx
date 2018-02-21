@@ -16,10 +16,16 @@ const Background = styled.nav`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+`;
+
 const LogoWrapper = styled.a`
   display: flex;
   align-items: center;
-  padding: 0.5rem 0;
   text-decoration: none;
   color: white;
 `;
@@ -40,15 +46,40 @@ const LogoText = styled.span`
   }
 `;
 
-export default () => (
+const ToolbarWrapper = styled.div`
+  display: flex;
+  justify-content: ;
+`;
+
+const Currency = styled.div`
+  display: ${props => (props.type === "search" ? "block" : "none")};
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 100px;
+
+  @media (min-width: 576px) {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+`;
+
+export default ({ type }) => (
   <Background>
     <Grid>
       <Row middle="xs">
         <Col xs>
-          <LogoWrapper href="/">
-            <LogoImg src={logo} alt="Logo" />
-            <LogoText>aviasales</LogoText>
-          </LogoWrapper>
+          <Wrapper>
+            <LogoWrapper href="/">
+              <LogoImg src={logo} alt="Logo" />
+              <LogoText>aviasales</LogoText>
+            </LogoWrapper>
+            <ToolbarWrapper>
+              <Currency type={type}>rub</Currency>
+            </ToolbarWrapper>
+          </Wrapper>
         </Col>
       </Row>
     </Grid>

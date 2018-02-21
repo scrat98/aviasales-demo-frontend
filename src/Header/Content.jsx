@@ -255,7 +255,7 @@ const MainFormButton = styled.button.attrs({ type: "submit" })`
   }
 `;
 
-export default () => (
+export default ({ type }) => (
   <Background>
     <Grid>
       <Row>

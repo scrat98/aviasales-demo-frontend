@@ -3,9 +3,9 @@ import React from "react";
 import Navbar from "./Navbar";
 import Content from "./Content";
 
-export default () => (
+export default ({ type }) => (
   <header>
-    <Navbar />
-    <Content />
+    <Navbar type={type} />
+    <Content type={type} />
   </header>
 );
