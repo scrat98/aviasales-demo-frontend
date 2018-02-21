@@ -5,22 +5,17 @@ import Search from "./Search";
 import Categories from "./Categories";
 import CityCards from "./CityCards";
 
-const Background = styled.div`
-  background: #f8fcff;
-`;
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 4rem;
+  padding: 4rem 0 1rem 0;
+  background: #f8fcff;
 `;
 
 export default () => (
-  <Background>
-    <Wrapper>
-      <Search />
-      <Categories />
-      <CityCards />
-    </Wrapper>
-  </Background>
+  <Wrapper>
+    <Search />
+    <Categories />
+    <CityCards />
+  </Wrapper>
 );
