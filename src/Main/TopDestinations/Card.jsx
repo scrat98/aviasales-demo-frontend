@@ -138,22 +138,22 @@ const TripDate = styled.span`
   text-align: right;
 `;
 
-export default props => (
+export default ({ img, country, flag, city, price, date }) => (
   <Wrapper href="#">
     <PhotoWrapper>
-      <Photo src={props.img} alt={props.city} />
+      <Photo src={img} alt={city} />
     </PhotoWrapper>
     <Content>
       <NameWrapper>
-        <CountryFlag src={props.flag} alt={props.country} />
+        <CountryFlag src={flag} alt={country} />
         <Location>
-          <CityName>{props.city}</CityName>
-          <CountryName>{props.country}</CountryName>
+          <CityName>{city}</CityName>
+          <CountryName>{country}</CountryName>
         </Location>
       </NameWrapper>
       <Details>
-        <Price>Найти от {props.price} ₽</Price>
-        <TripDate>{props.date}</TripDate>
+        <Price>Найти от {price} ₽</Price>
+        <TripDate>{date}</TripDate>
       </Details>
     </Content>
   </Wrapper>
