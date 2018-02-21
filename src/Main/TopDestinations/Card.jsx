@@ -75,7 +75,6 @@ const Location = styled.div`
 const CityName = styled.h3`
   padding: 0;
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   line-height: 1.25rem;
@@ -96,7 +95,6 @@ const CityName = styled.h3`
 const CountryName = styled.h4`
   padding: 0;
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   line-height: 1.25rem;
@@ -114,7 +112,6 @@ const Details = styled.div`
 const Price = styled.span`
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: normal;
@@ -129,7 +126,6 @@ const Price = styled.span`
 
 const TripDate = styled.span`
   margin-top: 0.5rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   line-height: 1.25rem;

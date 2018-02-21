@@ -31,7 +31,6 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderTitle = styled.h1`
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   text-align: center;
@@ -50,7 +49,6 @@ const HeaderTitle = styled.h1`
 `;
 
 const HeaderAside = styled.h2`
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -118,7 +116,6 @@ const MainFormInput = styled.input`
   width: 100%;
   line-height: 1.5rem;
   padding: 1rem 2rem 1rem 1rem;
-  font-family: Roboto;
   background: url(${props => props.src}) no-repeat right 10px center;
   background-color: white;
 `;
@@ -165,7 +162,6 @@ const PassengersWrapper = styled.div`
   padding: 1rem 2rem 1rem 1rem;
   line-height: 1.25rem;
   font-size: 1rem;
-  font-family: "Roboto";
   font-weight: 400;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -186,7 +182,6 @@ const PassengersWrapper = styled.div`
 `;
 
 const PassengersCount = styled.span`
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -197,7 +192,6 @@ const PassengersCount = styled.span`
 `;
 
 const TicketClass = styled.span`
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -212,7 +206,6 @@ const SwitchButton = styled.button`
   padding: 0;
   border: none;
   background: none;
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   color: #aeaeae;
@@ -236,7 +229,6 @@ const MainFormButton = styled.button.attrs({ type: "submit" })`
   cursor: pointer;
   background: #ff9241;
   border-radius: 4px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 900;
   line-height: normal;

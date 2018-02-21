@@ -32,7 +32,6 @@ const Article = styled.article`
 const Title = styled.h3`
   margin: 0 0 1rem 0;
   padding: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   line-height: 1.2rem;
@@ -55,7 +54,6 @@ const Title = styled.h3`
 const Content = styled.p`
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -65,7 +63,6 @@ const Content = styled.p`
 
 const MoreInfoLink = styled.a`
   text-decoration: none;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const CategoryTitle = styled.h3`
-  font-family: Roboto;
   padding: 0 0.3rem;
   font-style: normal;
   font-weight: normal;

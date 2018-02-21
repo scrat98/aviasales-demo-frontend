@@ -33,7 +33,6 @@ const Wrapper = styled.div`
 const Heading = styled.h3`
   display: block;
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   line-height: 1.25rem;
@@ -47,7 +46,6 @@ const Heading = styled.h3`
 `;
 
 const Description = styled.p`
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.5rem;
@@ -101,7 +99,6 @@ const SubscribeFieldWrapper = styled.div`
 `;
 
 const EmailInput = styled.input`
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -119,7 +116,6 @@ const SubscribeButton = styled.button`
   border-radius: 2px;
   border: 0;
   cursor: pointer;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;

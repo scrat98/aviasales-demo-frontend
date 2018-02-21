@@ -4,7 +4,6 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 
 const Note = styled.p`
   padding-top: 1rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -20,7 +19,6 @@ const Note = styled.p`
 const Agreement = styled.small`
   display: block;
   margin-top: 1.5rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.5rem;

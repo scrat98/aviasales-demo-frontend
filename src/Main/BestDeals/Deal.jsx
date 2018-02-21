@@ -53,7 +53,6 @@ const Location = styled.div`
 const CityName = styled.div`
   padding: 0;
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   line-height: 1.25rem;
@@ -74,7 +73,6 @@ const CityName = styled.div`
 const CountryName = styled.div`
   padding: 0;
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   line-height: 1.25rem;
@@ -101,7 +99,6 @@ const From = styled.h3`
   margin: 0;
   padding: 0;
   display: block;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -113,7 +110,6 @@ const Price = styled.span`
   font-size: 1rem;
   line-height: 1.25rem;
   color: #00bae8;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
 `;

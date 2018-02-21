@@ -16,7 +16,6 @@ const Heading = styled.h2`
   display: block;
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -44,7 +43,6 @@ const OfferWrapper = styled.div`
 const SeeAllLink = styled.a`
   display: block;
   padding-top: 1.25rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -62,7 +60,6 @@ const FootNote = styled.span`
   display: block;
   margin: 0;
   padding: 0.5rem 0 0 0;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;

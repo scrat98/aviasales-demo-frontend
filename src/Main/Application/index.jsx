@@ -27,7 +27,6 @@ const Header = styled.h2`
   padding: 0;
   margin: 0 0 1rem 0;
   display: flex;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -64,7 +63,6 @@ const RatingImg = styled.img`
 `;
 
 const RatingText = styled.span`
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.5rem;
@@ -83,7 +81,6 @@ const AppsWrapper = styled.div`
 `;
 
 const AppLink = styled.a`
-  font-family: "Roboto";
   display: flex;
   font-style: normal;
   font-weight: normal;

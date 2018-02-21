@@ -26,7 +26,6 @@ const Heading = styled.div`
 
 const Title = styled.h3`
   margin: 1.5rem 0 1.5rem 1rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1.25rem;
@@ -61,7 +60,6 @@ const AirCompany = styled.img`
 
 const From = styled.p`
   margin: 1rem 1rem 0.5rem 0;
-  font-family: "Roboto";
   line-height: 1rem;
   font-size: 0.75rem
   color: #5c5c5c;
@@ -73,14 +71,12 @@ const From = styled.p`
 `;
 
 const Price = styled.span`
-  font-family: "Roboto";
   font-size: 1.25rem;
   line-height: 1rem;
   color: #5c5c5c;
 `;
 
 const Remain = styled.p`
-  font-family: "Roboto";
   margin: 0 1rem 0 0;
   color: #d93633;
   font-size: 0.75rem;
@@ -95,7 +91,6 @@ const Remain = styled.p`
 
 const Description = styled.p`
   margin: 1rem 0.5rem 1.5rem 0.5rem;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   line-height: 1rem;

@@ -16,7 +16,6 @@ const NavBlock = styled.nav`
 
 const Title = styled.h4`
   color: #4a4a4a;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 600;
   font-size: 0.8rem;
@@ -26,7 +25,6 @@ const Title = styled.h4`
 
 const Footer = styled(Link)`
   color: #4a4a4a;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 600;
   font-size: 0.8rem;
