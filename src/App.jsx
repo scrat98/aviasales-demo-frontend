@@ -1,15 +1,16 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import Header from "./Header";
 import Main from "./Main";
-import Footer from "./Footer";
+import Search from "./Search";
 
 const App = () => (
-  <React.Fragment>
-    <Header />
-    <Main />
-    <Footer />
-  </React.Fragment>
+  <BrowserRouter>
+    <React.Fragment>
+      <Route path="/" exact component={Main} />
+      <Route path="/search" component={Search} />
+    </React.Fragment>
+  </BrowserRouter>
 );
 
 export default App;
