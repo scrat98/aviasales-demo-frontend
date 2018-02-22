@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Grid, Row, Col } from "react-flexbox-grid";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 
 import logo from "./icons/logo.svg";
 
@@ -52,7 +54,7 @@ const ToolbarWrapper = styled.div`
 `;
 
 const Currency = styled.div`
-  display: ${props => (props.type === "search" ? "block" : "none")};
+  display: ${props => (props.pathname === "/search" ? "block" : "none")};
   text-transform: uppercase;
   cursor: pointer;
   color: white;
@@ -66,22 +68,47 @@ const Currency = styled.div`
   }
 `;
 
-export default ({ type }) => (
-  <Background>
-    <Grid>
-      <Row middle="xs">
-        <Col xs>
-          <Wrapper>
-            <LogoWrapper href="/">
-              <LogoImg src={logo} alt="Logo" />
-              <LogoText>aviasales</LogoText>
-            </LogoWrapper>
-            <ToolbarWrapper>
-              <Currency type={type}>rub</Currency>
-            </ToolbarWrapper>
-          </Wrapper>
-        </Col>
-      </Row>
-    </Grid>
-  </Background>
-);
+const BackButton = styled.button`
+  display: ${props => (props.pathname === "/search" ? "block" : "none")};
+
+  @media (min-width: 576px) {
+    display: none;
+  }
+`;
+
+class Navbar extends React.Component {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
+  render() {
+    const { match, location, history } = this.props;
+
+    return (
+      <Background>
+        <Grid>
+          <Row middle="xs">
+            <Col xs>
+              <Wrapper>
+                <BackButton />
+                <LogoWrapper href="/">
+                  <LogoImg src={logo} alt="Logo" />
+                  <LogoText>aviasales</LogoText>
+                </LogoWrapper>
+                <ToolbarWrapper>
+                  <Currency pathname={location.pathname}>rub</Currency>
+                </ToolbarWrapper>
+              </Wrapper>
+            </Col>
+          </Row>
+        </Grid>
+      </Background>
+    );
+  }
+}
+
+const NavbarWithRouter = withRouter(Navbar);
+
+export default NavbarWithRouter;
