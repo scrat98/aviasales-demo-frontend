@@ -1,21 +1,29 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router";
 
 import logo from "./icons/logo.svg";
+import back from "./icons/back.svg";
 
 const Background = styled.nav`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
   background: linear-gradient(to left, #196ebd, #01b0dd);
-  @media (min-width: 1024px) {
-    position: fixed;
-  }
+  ${props =>
+    props.compact
+      ? css`
+          display: block;
+        `
+      : css`
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+
+          @media (min-width: 1024px) {
+            position: fixed;
+          }
+        `};
 `;
 
 const Wrapper = styled.div`
@@ -30,6 +38,16 @@ const LogoWrapper = styled.a`
   align-items: center;
   text-decoration: none;
   color: white;
+
+  ${props =>
+    props.compact &&
+    css`
+      display: none;
+
+      @media (min-width: 768px) {
+        display: flex;
+      }
+    `};
 `;
 
 const LogoImg = styled.img`
@@ -50,11 +68,11 @@ const LogoText = styled.span`
 
 const ToolbarWrapper = styled.div`
   display: flex;
-  justify-content: ;
+  justify-content: space-between;
 `;
 
 const Currency = styled.div`
-  display: ${props => (props.pathname === "/search" ? "block" : "none")};
+  display: ${props => (props.compact ? "block" : "none")};
   text-transform: uppercase;
   cursor: pointer;
   color: white;
@@ -62,53 +80,83 @@ const Currency = styled.div`
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 100px;
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     padding: 0.5rem 1.2rem;
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
 `;
 
-const BackButton = styled.button`
-  display: ${props => (props.pathname === "/search" ? "block" : "none")};
+const SearchInfoWrapper = styled.div`
+  ${props =>
+    props.compact
+      ? css`
+          display: flex;
 
-  @media (min-width: 576px) {
-    display: none;
-  }
+          @media (min-width: 768px) {
+            display: none;
+          }
+        `
+      : css`
+          display: none;
+        `};
 `;
 
-class Navbar extends React.Component {
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  };
+const BackLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-conntent: center;
+  margin-right: 1.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+`;
 
-  render() {
-    const { match, location, history } = this.props;
+const SearchParametersWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-    return (
-      <Background>
-        <Grid>
-          <Row middle="xs">
-            <Col xs>
-              <Wrapper>
-                <BackButton />
-                <LogoWrapper href="/">
-                  <LogoImg src={logo} alt="Logo" />
-                  <LogoText>aviasales</LogoText>
-                </LogoWrapper>
-                <ToolbarWrapper>
-                  <Currency pathname={location.pathname}>rub</Currency>
-                </ToolbarWrapper>
-              </Wrapper>
-            </Col>
-          </Row>
-        </Grid>
-      </Background>
-    );
-  }
-}
+const SearchLocation = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2rem;
+  font-size: 1rem;
+  color: white;
+`;
 
-const NavbarWithRouter = withRouter(Navbar);
+const SearchDetails = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1rem;
+  font-size: 0.8rem;
+  color: white;
+`;
 
-export default NavbarWithRouter;
+export default ({ compact }) => (
+  <Background compact={compact}>
+    <Grid fluid={!matchMedia("(min-width: 768px)").matches}>
+      <Row middle="xs">
+        <Col xs>
+          <Wrapper>
+            <LogoWrapper href="/" compact={compact}>
+              <LogoImg src={logo} alt="Logo" />
+              <LogoText>aviasales</LogoText>
+            </LogoWrapper>
+            <SearchInfoWrapper compact={compact}>
+              <BackLink href="/">
+                <img src={back} />
+              </BackLink>
+              <SearchParametersWrapper>
+                <SearchLocation>Москва — Барселона</SearchLocation>
+                <SearchDetails>24 фев — 3 март, 1 пассажир</SearchDetails>
+              </SearchParametersWrapper>
+            </SearchInfoWrapper>
+            <ToolbarWrapper>
+              <Currency compact={compact}>rub</Currency>
+            </ToolbarWrapper>
+          </Wrapper>
+        </Col>
+      </Row>
+    </Grid>
+  </Background>
+);

@@ -6,7 +6,7 @@ import Header from "../Header";
 
 export default () => (
   <React.Fragment>
-    <Header type="search" />
+    <Header compact />
     <main>
       <div>Content</div>
     </main>
