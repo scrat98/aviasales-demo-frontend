@@ -1,6 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import DatePicker, {
+  DATE_PICKER_TYPE,
+  DATE_PICKER_LOCALE
+} from "../Filters/DatePicker";
+
 import calendar from "./icons/calendar.svg";
 
 const Wrapper = styled.div`
@@ -74,17 +79,62 @@ const CalendarButton = styled.button`
 `;
 
 class TripDateInput extends React.Component {
+  state = {
+    from: null,
+    to: null
+  };
+
+  openDepartureFilter = () => {
+    this.props.openFilter("departureDate");
+  };
+
+  openDestinationFilter = () => {
+    this.props.openFilter("destinationDate");
+  };
+
+  setStartDate = day => {
+    this.setState({ from: day });
+    this.normaliseDate();
+  };
+
+  setEndDate = day => {
+    this.setState({ to: day });
+    this.normaliseDate();
+  };
+
+  normaliseDate() {
+    this.setState(prevState => {
+      const { from, to } = prevState;
+      if (from > to) {
+        return { to: null };
+      }
+    });
+  }
+
   render() {
     return (
       <Wrapper compact={this.props.compact}>
         <DepartureDateWrapper>
           <DepartureDateInput placeholder="Туда" />
           <CalendarButton />
+          <DatePicker
+            from={this.state.from}
+            to={this.state.to}
+            type={DATE_PICKER_TYPE.startDate}
+            locale={DATE_PICKER_LOCALE.ru}
+            setDay={this.setStartDate}
+          />
         </DepartureDateWrapper>
-
         <DestinationDateWrapper>
           <DestinationDateInput placeholder="Обратно" />
           <CalendarButton />
+          <DatePicker
+            from={this.state.from}
+            to={this.state.to}
+            type={DATE_PICKER_TYPE.endDate}
+            locale={DATE_PICKER_LOCALE.ru}
+            setDay={this.setEndDate}
+          />
         </DestinationDateWrapper>
       </Wrapper>
     );

@@ -111,7 +111,15 @@ class AviaPlacesInput extends React.Component {
     destinationAbbreviation: "led"
   };
 
-  SwitchLocation = e => {
+  openDepartureFilter = () => {
+    this.props.openFilter("departureLocation");
+  };
+
+  openDestinationFilter = () => {
+    this.props.openFilter("destinationLocation");
+  };
+
+  switchLocation = e => {
     e.preventDefault();
     this.setState((prevState, props) => ({
       departure: prevState.destination,
@@ -129,12 +137,11 @@ class AviaPlacesInput extends React.Component {
             placeholder="Город отправления"
             value={this.state.departure}
           />
-          <SwitchLocationButton onClick={this.SwitchLocation} />
+          <SwitchLocationButton onClick={this.switchLocation} />
           <DepartureAbbreviation>
             {this.state.departureAbbreviation}
           </DepartureAbbreviation>
         </DepartureWrapper>
-
         <DestinationWrapper>
           <DestinationInput
             placeholder="Город прибытия"

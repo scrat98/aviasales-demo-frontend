@@ -23,11 +23,39 @@ const Wrapper = styled.form`
     `};
 `;
 
-export default ({ compact }) => (
-  <Wrapper compact={compact}>
-    <AviaPlacesInput compact={compact} />
-    <TripDateInput compact={compact} />
-    <PassengersInput compact={compact} />
-    <SubmitButton compact={compact} />
-  </Wrapper>
-);
+class SearchForm extends React.Component {
+  state = {
+    openedFilter: undefined
+  };
+
+  openFilter = filter => {
+    this.setState({ openedFilter: filter });
+  };
+
+  render() {
+    return (
+      <Wrapper compact={this.props.compact}>
+        <AviaPlacesInput
+          compact={this.props.compact}
+          openFilter={this.openFilter}
+          isDepartureOpen={this.state.openedFilter === "departureLocation"}
+          isDestinationOpen={this.state.openedFilter === "destinationLocation"}
+        />
+        <TripDateInput
+          compact={this.props.compact}
+          openFilter={this.openFilter}
+          isDepartureOpen={this.state.openedFilter === "departureDate"}
+          isDestinationDateOpen={this.state.openedFilter === "destinationDate"}
+        />
+        <PassengersInput
+          compact={this.props.compact}
+          openFilter={this.openFilter}
+          isOpen={this.state.openedFilter === "passengers"}
+        />
+        <SubmitButton compact={this.props.compact} />
+      </Wrapper>
+    );
+  }
+}
+
+export default SearchForm;
