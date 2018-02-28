@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { Grid, Row, Col } from "react-flexbox-grid";
+import ClickOutside from "react-click-outside";
 
 import AviaPlacesInput from "./AviaPlacesInput";
 import TripDateInput from "./TripDateInput";
@@ -25,35 +26,48 @@ const Wrapper = styled.form`
 
 class SearchForm extends React.Component {
   state = {
-    openedFilter: undefined
+    openedFilter: null
   };
 
   openFilter = filter => {
     this.setState({ openedFilter: filter });
   };
 
+  closeFilters = () => {
+    this.setState({ openedFilter: null });
+  };
+
   render() {
     return (
-      <Wrapper compact={this.props.compact}>
-        <AviaPlacesInput
-          compact={this.props.compact}
-          openFilter={this.openFilter}
-          isDepartureOpen={this.state.openedFilter === "departureLocation"}
-          isDestinationOpen={this.state.openedFilter === "destinationLocation"}
-        />
-        <TripDateInput
-          compact={this.props.compact}
-          openFilter={this.openFilter}
-          isDepartureOpen={this.state.openedFilter === "departureDate"}
-          isDestinationDateOpen={this.state.openedFilter === "destinationDate"}
-        />
-        <PassengersInput
-          compact={this.props.compact}
-          openFilter={this.openFilter}
-          isOpen={this.state.openedFilter === "passengers"}
-        />
-        <SubmitButton compact={this.props.compact} />
-      </Wrapper>
+      <ClickOutside onClickOutside={this.closeFilters}>
+        <Wrapper compact={this.props.compact}>
+          <AviaPlacesInput
+            compact={this.props.compact}
+            openFilter={this.openFilter}
+            closeFilters={this.closeFilters}
+            isDepartureOpen={this.state.openedFilter === "departureLocation"}
+            isDestinationOpen={
+              this.state.openedFilter === "destinationLocation"
+            }
+          />
+          <TripDateInput
+            compact={this.props.compact}
+            openFilter={this.openFilter}
+            closeFilters={this.closeFilters}
+            isDepartureOpen={this.state.openedFilter === "departureDate"}
+            isDestinationDateOpen={
+              this.state.openedFilter === "destinationDate"
+            }
+          />
+          <PassengersInput
+            compact={this.props.compact}
+            openFilter={this.openFilter}
+            closeFilters={this.closeFilters}
+            isOpen={this.state.openedFilter === "passengers"}
+          />
+          <SubmitButton compact={this.props.compact} />
+        </Wrapper>
+      </ClickOutside>
     );
   }
 }

@@ -2,6 +2,9 @@
 
 .DayPicker {
   display: inline-block;
+  position: absolute;
+  left: 0;
+  z-index: 100;
 }
 
 .DayPicker-wrapper {

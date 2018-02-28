@@ -92,14 +92,20 @@ class TripDateInput extends React.Component {
     this.props.openFilter("destinationDate");
   };
 
+  closeFilters = () => {
+    this.props.closeFilters();
+  };
+
   setStartDate = day => {
     this.setState({ from: day });
     this.normaliseDate();
+    this.openDestinationFilter();
   };
 
   setEndDate = day => {
     this.setState({ to: day });
     this.normaliseDate();
+    this.closeFilters();
   };
 
   normaliseDate() {
@@ -115,26 +121,36 @@ class TripDateInput extends React.Component {
     return (
       <Wrapper compact={this.props.compact}>
         <DepartureDateWrapper>
-          <DepartureDateInput placeholder="Туда" />
-          <CalendarButton />
-          <DatePicker
-            from={this.state.from}
-            to={this.state.to}
-            type={DATE_PICKER_TYPE.startDate}
-            locale={DATE_PICKER_LOCALE.ru}
-            setDay={this.setStartDate}
+          <DepartureDateInput
+            placeholder="Туда"
+            onClick={this.openDepartureFilter}
           />
+          <CalendarButton />
+          {this.props.isDepartureOpen && (
+            <DatePicker
+              from={this.state.from}
+              to={this.state.to}
+              type={DATE_PICKER_TYPE.startDate}
+              locale={DATE_PICKER_LOCALE.ru}
+              setDay={this.setStartDate}
+            />
+          )}
         </DepartureDateWrapper>
         <DestinationDateWrapper>
-          <DestinationDateInput placeholder="Обратно" />
-          <CalendarButton />
-          <DatePicker
-            from={this.state.from}
-            to={this.state.to}
-            type={DATE_PICKER_TYPE.endDate}
-            locale={DATE_PICKER_LOCALE.ru}
-            setDay={this.setEndDate}
+          <DestinationDateInput
+            placeholder="Обратно"
+            onClick={this.openDestinationFilter}
           />
+          <CalendarButton />
+          {this.props.isDestinationDateOpen && (
+            <DatePicker
+              from={this.state.from}
+              to={this.state.to}
+              type={DATE_PICKER_TYPE.endDate}
+              locale={DATE_PICKER_LOCALE.ru}
+              setDay={this.setEndDate}
+            />
+          )}
         </DestinationDateWrapper>
       </Wrapper>
     );
